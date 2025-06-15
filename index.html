@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Bharatiya Legal &mdash; Advocates & Associates</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+
+
+	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content="" />
+	<meta property="og:image" content="" />
+	<meta property="og:url" content="" />
+	<meta property="og:site_name" content="" />
+	<meta property="og:description" content="" />
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<link
+		href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic|Merriweather:300,400italic,300italic,400,700italic'
+		rel='stylesheet' type='text/css'>
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Simple Line Icons -->
+	<link rel="stylesheet" href="css/simple-line-icons.css">
+	<!-- Datetimepicker -->
+	<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+	<!-- Flexslider -->
+	<link rel="stylesheet" href="css/flexslider.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<link rel="stylesheet" href="css/style.css">
+
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+	<!-- DISCLAIMER MODAL -->
+	<div id="disclaimerModal" class="modal">
+		<div class="modal-content"> <img src="images/logo_home.png" alt="Centered Image"
+				style="max-width:50%; height:auto; display:block; margin:auto;" /> <br>
+			<h2>Disclaimer:</h2>
+			<p class="disclaimer-text">
+				The rules of the Bar Council of India prohibit law firms from soliciting work or advertising in any
+				manner. By clicking on 'I AGREE', the user acknowledges that:
+			</p>
+			<ul class="disclaimer-text">
+				<li>The user wishes to gain more information about Bharatiya Legal, its practice areas and its
+					attorneys, for his/her own information and use;</li>
+				<li>The information is made available/provided to the user only on his/her specific request and any
+					information obtained or material downloaded from this website is completely at the user's volition
+					and any transmission, receipt or use of this site is not intended to, and will not, create any
+					lawyer-client relationship; and</li>
+				<li>None of the information contained on the website is in the nature of a legal opinion or otherwise
+					amounts to any legal advice.</li>
+			</ul>
+			<p class="disclaimer-text">
+				Bharatiya Legal is not liable for any consequence of any action taken by the user relying on
+				material/information provided under this website. In cases where the user has any legal issues, he/she
+				in all cases must seek independent legal advice.
+			</p>
+			<div class="modal-buttons">
+				<button onclick="acceptDisclaimer()">I Agree</button>
+				<button onclick="exitSite()">Exit</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- STYLES -->
+	<style>
+		.modal {
+			display: flex;
+			position: fixed;
+			z-index: 1000;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.7);
+			justify-content: center;
+			align-items: center;
+			padding: 20px;
+			overflow-y: auto;
+			box-sizing: border-box;
+		}
+
+		.modal-content {
+			background: #fff9e6;
+			width: 100%;
+			max-width: 600px;
+			padding: 25px;
+			border-radius: 12px;
+			text-align: left;
+			font-family: Arial, sans-serif;
+			box-sizing: border-box;
+		}
+
+		.modal-content h2 {
+			margin-top: 0;
+			font-size: 20px;
+			text-align: left;
+		}
+
+		.disclaimer-text {
+			font-size: 14px;
+			font-style: italic;
+			line-height: 1.6;
+			color: #333;
+			word-wrap: break-word;
+		}
+
+		.modal-content ul {
+			padding-left: 20px;
+			margin: 10px 0;
+		}
+
+		.modal-content ul li {
+			margin-bottom: 10px;
+		}
+
+		.modal-buttons {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: flex-end;
+			gap: 10px;
+			margin-top: 20px;
+		}
+
+		.modal-buttons button {
+			padding: 8px 16px;
+			border: none;
+			border-radius: 6px;
+			font-weight: bold;
+			cursor: pointer;
+			font-size: 14px;
+		}
+
+		.modal-buttons button:first-child {
+			background-color: #2e7d32;
+			color: white;
+		}
+
+		.modal-buttons button:last-child {
+			background-color: #c62828;
+			color: white;
+		}
+
+		/* === Responsive Enhancements === */
+		@media screen and (max-width: 768px) {
+			.modal-content {
+				padding: 20px;
+			}
+
+			.disclaimer-text {
+				font-size: 13px;
+			}
+
+			.modal-buttons {
+				flex-direction: column;
+				align-items: stretch;
+			}
+
+			.modal-buttons button {
+				width: 100%;
+			}
+		}
+
+		@media screen and (max-width: 480px) {
+			.modal-content {
+				padding: 15px;
+			}
+
+			.disclaimer-text {
+				font-size: 12px;
+			}
+		}
+	</style>
+
+	<!-- SCRIPT -->
+	<script>
+		function acceptDisclaimer() {
+			document.getElementById('disclaimerModal').style.display = 'none';
+		}
+
+		function exitSite() {
+			window.location.href = "https://www.google.com"; // Or redirect elsewhere
+		}
+	</script>
+
+	<div id="fh5co-container">
+		<div id="fh5co-home" class="js-fullheight" data-section="home">
+
+			<div class="flexslider">
+
+				<div class="fh5co-overlay" style="background-color: #fff9e6; opacity: 0.5;"></div>
+				<div class="fh5co-text">
+					<div class="container">
+						<div class="row">
+							<h1 class="to-animate" "font-size:100px"><img src="images/logo_home.png"
+									alt="Centered Image"
+									style="max-width:100%; height:auto; display:block; margin:auto;" /></h1>
+							<h3 class="to-animate"><a href="" target="_blank"></a></h3>
+						</div>
+					</div>
+				</div>
+				<ul class="slides">
+					<li style="background-image: url(images/.jpg);" data-stellar-background-ratio="0.5"></li>
+					<!---<li style="background-image: url(images/);" data-stellar-background-ratio="0.5"></li>
+			   	<li style="background-image: url(images/);" data-stellar-background-ratio="0.5"></li> --->
+				</ul>
+
+			</div>
+
+		</div>
+
+		<div class="js-sticky">
+			<div class="fh5co-main-nav">
+				<div class="container-fluid">
+					<div class="fh5co-menu-1">
+						<a href="#" data-nav-section="home">Home</a>
+						<a href="#" data-nav-section="about">About Us</a>
+						<a href="#" data-nav-section="menu">Practice Area</a>
+					</div>
+					<div class="fh5co-logo">
+						<a href="index.html"> <img src="images/logo.png" alt="Bharatiya Legal Logo"
+								class="responsive-logo"></a>
+					</div>
+					<div class="fh5co-menu-2">
+						<a href="#" data-nav-section="features">Team</a>
+						<a href="#" data-nav-section="events">Clients</a>
+						<a href="#" data-nav-section="reservation">Contact Us</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div id="fh5co-about" data-section="about">
+			<div class="fh5co-2col fh5co-bg to-animate-2" style="background-image: url(images/res_img_1.jpg)"></div>
+			<div class="fh5co-2col fh5co-text">
+				<h2 class="heading to-animate">About Us</h2>
+
+				<p class="to-animate"><span class="firstcharacter">B</span>haratiya Legal is a dedicated law office
+					founded with a clear vision: to provide honest, strategic, and client-centric legal solutions.
+					Rooted in integrity and driven by results, our firm represents individuals, businesses, and
+					organizations across diverse legal domains with precision and professionalism.
+
+					With extensive experience in Civil & Property Disputes, Criminal Defense, Family & Matrimonial Law,
+					Consumer Complaints, Cheque Bounce Matters, Legal Drafting, Court Litigation, Society Disputes,
+					Money Recovery, and RERA-related issues, we combine practical insights with a deep understanding of
+					the law to ensure clients receive effective legal remedies.</p>
+				<p class="text-center to-animate"><a href="#" class="btn btn-primary btn-outline">Get in touch</a></p>
+			</div>
+		</div>
+
+		<div id="fh5co-sayings">
+			<div class="container">
+				<div class="row to-animate">
+
+					<div class="flexslider">
+						<ul class="slides">
+
+							<li>
+								<blockquote>
+									<p>&ldquo;The Constitution is not a mere lawyers’ document, it is a vehicle of
+										Life.&rdquo;</p>
+									<p class="quote-author">&mdash; Dr. B.R. Ambedkar</p>
+								</blockquote>
+							</li>
+							<li>
+								<blockquote>
+									<p>&ldquo;The profession of advocacy is not a business — it’s a service to
+										society.&rdquo;</p>
+									<p class="quote-author">&mdash; Ram Jethmalani</p>
+								</blockquote>
+							</li>
+							<li>
+								<blockquote>
+									<p>&ldquo;An advocate is not a mouthpiece of his client, but an officer of the court
+										with a duty to the truth.&rdquo;</p>
+									<p class="quote-author">&mdash; Nani Palkhivala</p>
+								</blockquote>
+							</li>
+
+
+						</ul>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+
+		<div id="fh5co-menus" data-section="menu">
+			<div class="container">
+				<div class="row text-center fh5co-heading row-padded">
+					<div class="col-md-8 col-md-offset-2">
+						<h2 class="heading to-animate">Practice Area</h2>
+						<p class="sub-heading to-animate">"Offering expert legal services across diverse practice areas
+							to protect your rights, resolve disputes, and deliver justice with integrity."
+					</div>
+				</div>
+				<div class="row row-padded">
+					<div class="col-md-6">
+						<div class="fh5co-food-menu to-animate-2">
+							<h2 class="">🏠 Civil & Property Disputes</h2>
+							<ul>
+								<li>
+									<div class="fh5co-food-desc">
+
+										<div>
+											<h3>Recovery of money or possession</h3>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="fh5co-food-desc">
+
+										<div>
+											<h3>Landlord-tenant disputes</h3>
+										</div>
+									</div>
+
+								</li>
+								<li>
+									<div class="fh5co-food-desc">
+
+										<div>
+											<h3>Declaration suits</h3>
+										</div>
+									</div>
+
+								</li>
+								<li>
+									<div class="fh5co-food-desc">
+
+										<div>
+											<h3>Lease and rent disputes</h3>
+										</div>
+									</div>
+
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="fh5co-food-menu to-animate-2">
+							<h2 class="">🚨 Criminal Defense</h2>
+							<ul>
+								<li>
+									<div class="fh5co-food-desc">
+
+										<div>
+											<h3>Anticipatory Bail & Regular Bail</h3>
+										</div>
+									</div>
+
+								</li>
+								<li>
+									<div class="fh5co-food-desc">
+
+										<div>
+											<h3>FIR Quashing</h3>
+										</div>
+									</div>
+
+								</li>
+								<li>
+									<div class="fh5co-food-desc">
+
+										<div>
+											<h3>Domestic Violence (DV Act)</h3>
+										</div>
+									</div>
+
+								</li>
+								<li>
+									<div class="fh5co-food-desc">
+
+										<div>
+											<h3>Dowry harassment</h3>
+										</div>
+									</div>
+
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="fh5co-food-menu to-animate-2">
+							<h2 class="">👪 Family & Divorce Law</h2>
+							<ul>
+								<li>
+									<div class="fh5co-food-desc">
+
+										<div>
+											<h3>Mutual and Contested Divorce</h3>
+										</div>
+									</div>
+
+								</li>
+								<li>
+									<div class="fh5co-food-desc">
+
+										<div>
+											<h3>Maintenance under Section 125 CrPC</h3>
+										</div>
+									</div>
+
+								</li>
+								<li>
+									<div class="fh5co-food-desc">
+
+										<div>
+											<h3>Child custody and visitation rights</h3>
+										</div>
+									</div>
+
+								</li>
+								<li>
+									<div class="fh5co-food-desc">
+
+										<div>
+											<h3>Domestic violence complaints</h3>
+										</div>
+									</div>
+
+								</li>
+								<li>
+									<div class="fh5co-food-desc">
+
+										<div>
+											<h3>Alimony and settlement drafting</h3>
+										</div>
+									</div>
+
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="fh5co-food-menu to-animate-2">
+							<h2 class="">💵 Cheque Bounce & Consumer Cases</h2>
+							<ul>
+								<li>
+									<div class="fh5co-food-desc">
+
+										<div>
+											<h3>Cheque bounce U/S 138 NI Act</h3>
+										</div>
+									</div>
+
+								</li>
+								<li>
+									<div class="fh5co-food-desc">
+
+										<div>
+											<h3>Issuing and replying to legal notices</h3>
+										</div>
+									</div>
+
+								</li>
+								<li>
+									<div class="fh5co-food-desc">
+
+										<div>
+											<h3>Deficiency of service</h3>
+										</div>
+									</div>
+
+								</li>
+								<li>
+									<div class="fh5co-food-desc">
+
+										<div>
+											<h3>Online fraud</h3>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="fh5co-food-desc">
+										<div>
+											<h3>e-commerce grievances</h3>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-md-offset-4 text-center to-animate-2">
+						<p><a href="practicearea.html" class="btn btn-primary btn-outline">View More</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="fh5co-featured" data-section="features">
+			<div class="container">
+				<div class="row text-center fh5co-heading row-padded">
+					<div class="col-md-8 col-md-offset-2">
+						<h2 class="heading to-animate">Team</h2>
+						<p class="sub-heading to-animate">Our team of advocates brings together vast experience and deep
+							expertise, passionately committed to delivering exceptional legal solutions.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="fh5co-grid">
+						<div class="fh5co-v-half to-animate-2">
+							<div class="fh5co-v-col-2 fh5co-bg-img"
+									style="background-image: url(images/profile_1.jpg)"></div>
+							<div class="fh5co-v-col-2 fh5co-text fh5co-special-1 arrow-left">
+								<h2>Advocate Indrajeet Yadav</h2>
+								<h5>- B.Sc(CS), DCyL, LL.M</h5>
+								<span class="pricing"></span><br>
+								<p>Founder Bharatiya Legal</p>
+							</div>
+						</div>
+						<div class="fh5co-v-half">
+							<div class="fh5co-h-row-2 to-animate-2">
+								<div class="fh5co-v-col-2 fh5co-bg-img"
+									style="background-image: url(images/res_img_2.png)"></div>
+								<div class="fh5co-v-col-2 fh5co-text arrow-left">
+									<h2>Advocate Poonam Pal</h2>
+									<h5>- M.Com, LL.M</h5>
+									<span class="pricing"></span><br>
+									<p>Practice area: City Civil Court, Family Court (Bandra) and High Court (Bombay)
+									</p>
+								</div>
+							</div>
+							<div class="fh5co-h-row-2 fh5co-reversed to-animate-2">
+								<div class="fh5co-v-col-2 fh5co-bg-img"
+									style="background-image: url(images/res_img_8.jpg)"></div>
+								<div class="fh5co-v-col-2 fh5co-text arrow-right">
+									<h2>Advocate Saba Shaikh</h2>
+									<span class="pricing"></span><br>
+									<p>Practice area: Sessions Court, M M Courts and Small Cause Courts</p>
+								</div>
+							</div>
+						</div>
+
+						<!----
+						<div class="fh5co-v-half">
+							<div class="fh5co-h-row-2 fh5co-reversed to-animate-2">
+								<div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(images/res_img_7.jpg)"></div>
+								<div class="fh5co-v-col-2 fh5co-text arrow-right">
+									<h2>Organic Egg</h2>
+									<span class="pricing"></span><br>
+									<p>Far far away, behind the word mountains.</p>
+								</div>
+							</div>
+							<div class="fh5co-h-row-2 to-animate-2">
+								<div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(images/res_img_6.jpg)"></div>
+								<div class="fh5co-v-col-2 fh5co-text arrow-left">
+									<h2>Salad with Crispy Chicken</h2>
+									<span class="pricing"></span><br>
+									<p>Far far away, behind the word mountains.</p>
+								</div>
+							</div>
+						</div>
+						<div class="fh5co-v-half to-animate-2">
+							<div class="fh5co-v-col-2 fh5co-bg-img" style="background-image: url(images/res_img_3.jpg)"></div>
+							<div class="fh5co-v-col-2 fh5co-text fh5co-special-1 arrow-left">
+								<h2>Tomato Soup with Chicken</h2>
+								<span class="pricing"></span><br>
+								<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							</div>
+						</div> ---->
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!------
+		<div id="fh5co-type" style="background-image: url(images/slide_3.jpg);" data-stellar-background-ratio="0.5">
+			<div class="fh5co-overlay"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3 to-animate">
+						<div class="fh5co-type">
+							<h3 class="with-icon icon-1">Fruits</h3>
+							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						</div>
+					</div>
+					<div class="col-md-3 to-animate">
+						<div class="fh5co-type">
+							<h3 class="with-icon icon-2">Sea food</h3>
+							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						</div>
+					</div>
+					<div class="col-md-3 to-animate">
+						<div class="fh5co-type">
+							<h3 class="with-icon icon-3">Vegetables</h3>
+							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						</div>
+					</div>
+					<div class="col-md-3 to-animate">
+						<div class="fh5co-type">
+							<h3 class="with-icon icon-4">Meat</h3>
+							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		---->
+		<!---
+		<div id="fh5co-events" data-section="events" style="background-image: url(images/res_img_1.jpg);" data-stellar-background-ratio="0.5">
+			<div class="fh5co-overlay"></div>
+			<div class="container">
+				<div class="row text-center fh5co-heading row-padded">
+					<div class="col-md-8 col-md-offset-2 to-animate">
+						<h2 class="heading">Upcoming Events</h2>
+						<p class="sub-heading">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="fh5co-event to-animate-2">
+							<h3>Kitchen Workshops</h3>
+							<span class="fh5co-event-meta">March 19th, 2016</span>
+							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							<p><a href="#" class="btn btn-primary btn-outline">Read More</a></p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="fh5co-event to-animate-2">
+							<h3>Music Concerts</h3>
+							<span class="fh5co-event-meta">March 19th, 2016</span>
+							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							<p><a href="#" class="btn btn-primary btn-outline">Read More</a></p>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="fh5co-event to-animate-2">
+							<h3>Free to Eat Party</h3>
+							<span class="fh5co-event-meta">March 19th, 2016</span>
+							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+							<p><a href="#" class="btn btn-primary btn-outline">Read More</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		------->
+
+		<div id="fh5co-contact" data-section="reservation">
+			<div class="container">
+				<div class="row text-center fh5co-heading row-padded">
+					<div class="col-md-8 col-md-offset-2">
+						<h2 class="heading to-animate">Contact Us</h2>
+						<p class="sub-heading to-animate">Reach our legal desk for precise counsel and timely
+							communication—your first step toward resolution begins here.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 to-animate-2">
+						<h3>Contact Info</h3>
+						<ul class="fh5co-contact-info">
+							<li class="fh5co-contact-address ">
+								<i class="icon-home"></i>
+								Office Address:<br>33, Shivaji Nagar II, <br>Govandi, Mumbai, Maharashtra - 4000043.
+							</li>
+							<li><i class="icon-phone"></i> <a class="whatsapp-link" href="https://wa.me/+918898679986"
+									target="_blank" rel="noopener noreferrer">8898679986 (Chat on WhatsApp)</a><br> <a
+									onclick="window.location.href='tel:+918898679986'">8879739497 </a> <br></li>
+							<li><i class="icon-envelope"></i> <a
+									href="https://mail.google.com/mail/?view=cm&fs=1&to=bharatiyalegal@gmail.com"
+									target="_blank"> bharatiyalegal@gmail.com </a></li>
+							<li><i class="icon-globe"></i> <a href="bharatiyalegaloffice.com" target="_blank">Bharatiya
+									Legal</a></li>
+						</ul>
+					</div>
+					<div class="col-md-6 to-animate-2">
+						<div class="appointment">
+							<h3>Book an Appointment</h3>
+							<p>Call or WhatsApp us now to schedule your consultation with our advocates.</p>
+							<button onclick="window.location.href='tel:+918898679986'"
+								class="btn btn-primary btn-outline">
+								Call to Book
+							</button>
+							<button onclick="window.open('https://wa.me/+918898679986', '_blank')"
+								class="btn btn-primary btn-outline">
+								WhatsApp to Book
+							</button>
+						</div>
+					</div>
+					<!--<div class="col-md-6 to-animate-2">
+						<h3>Reservation Form</h3>
+						<div class="form-group ">
+							<label for="name" class="sr-only">Name</label>
+							<input id="name" class="form-control" placeholder="Name" type="text">
+						</div>
+						<div class="form-group ">
+							<label for="email" class="sr-only">Email</label>
+							<input id="email" class="form-control" placeholder="Email" type="email">
+						</div>
+						<div class="form-group">
+							<label for="occation" class="sr-only">Occation</label>
+							<select class="form-control" id="occation">
+								<option>Select an Occation</option>
+							  <option>Wedding Ceremony</option>
+							  <option>Birthday</option>
+							  <option>Others</option>
+							</select>
+						</div>
+						<div class="form-group ">
+							<label for="date" class="sr-only">Date</label>
+							<input id="date" class="form-control" placeholder="Date &amp; Time" type="text">
+						</div>
+							
+						<div class="form-group ">
+							<label for="message" class="sr-only">Message</label>
+							<textarea name="" id="message" cols="30" rows="5" class="form-control" placeholder="Message"></textarea>
+						</div>
+						<div class="form-group ">
+							<input class="btn btn-primary" value="Send Message" type="submit">
+						</div>
+						</div> -->
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+	<div id="fh5co-footer">
+		<div class="container">
+			<div class="row row-padded">
+				<div class="col-md-12 text-center">
+					<i class="fa fa-love"></i>© 2025 <a href="https://bharatiyalegaloffice.com">Bharatiya Legal.</a> All
+					Rights Reserved.
+					Content on this site is for informational purposes only and subject to Bar Council of India rules.
+					<!--<p class="text-center to-animate"><a href="#" class="js-gotop">Go To Top</a></p> -->
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<ul class="fh5co-social">
+						<li class="to-animate-2"><a href="#"><i class="icon-linkedin"></i></a></li>
+						<li class="to-animate-2"><a href="#"><i class="icon-youtube"></i></a></li>
+						<li class="to-animate-2"><a href="https://www.instagram.com/adv_indraajeeet/"><i
+									class="icon-instagram"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Bootstrap DateTimePicker -->
+	<script src="js/moment.js"></script>
+	<script src="js/bootstrap-datetimepicker.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="js/jquery.stellar.min.js"></script>
+
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+	<script>
+		$(function () {
+			$('#date').datetimepicker();
+		});
+	</script>
+	<!-- Main JS -->
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>
